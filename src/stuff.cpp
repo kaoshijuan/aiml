@@ -89,7 +89,7 @@ void aiml::do_split(string input, vector<string>& out, const string& sentence_li
 // leaves only alphanumeric characters and makes them all uppercase
 void aiml::do_pattern_fitting(string& input) {
   for (string::iterator it = input.begin(); it != input.end(); ++it) {
-    if (!isalnum(*it)) (*it) = ' ';
+    if (!isalnum(*it)) (*it) = (*it);
     else (*it) = toupper(*it);
   }
 }
