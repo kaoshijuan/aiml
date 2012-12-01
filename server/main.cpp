@@ -68,7 +68,7 @@ int main(int argc, char* argv[]) {
   }
 
 
-  TLib_Log_LogInit("server_aiml", 10000000, 5, 0); 
+  TLib_Log_LogInit("server_aiml", 10000000, 5, 1); 
 
   cInterpreter* interpreter = cInterpreter::newInterpreter();
 
@@ -102,7 +102,7 @@ int main(int argc, char* argv[]) {
     cServerAppCallbacks myCallbacks;
     interpreter->registerCallbacks(&myCallbacks);
     
-    TLib_Log_LogMsg("Initializing interpreter...");
+    TLib_Log_LogMsg("Initializing interpreter...\n");
     if (!interpreter->initialize("libaiml.xml")) throw 1;
     
     string result;
@@ -116,7 +116,7 @@ int main(int argc, char* argv[]) {
       int n = recvfrom(fd,szMsg,sizeof(szMsg)-1,0,(sockaddr*)&client_addr,(socklen_t*)&len);
       if(n < 0)
       {
-        TLib_Log_LogMsg("recv failed of %d",n);
+        TLib_Log_LogMsg("recv failed of %d\n",n);
         continue;
       }
 
@@ -161,7 +161,6 @@ int main(int argc, char* argv[]) {
         for (list<string>::const_iterator it = it_outter->topic.begin(); it != it_outter->topic.end(); ++it) { cout << "[" << *it << "] "; }
         cout << endl << endl;
       }
-      cout << "You: " << flush;
     }
   
     /** Uncomment this line out and you'll see that the bot will no longer remember user vars **/
