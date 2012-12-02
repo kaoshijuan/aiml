@@ -142,8 +142,8 @@ int main(int argc, char* argv[]) {
 
       }
 
-      TLib_Log_LogMsg("%s:%s",szUserName,szContent);
-      TLib_Log_LogMsg("Computer:%s",szMsg);
+      TLib_Log_LogMsg("%s:%s\n",szUserName,szContent);
+      TLib_Log_LogMsg("Computer:%s\n",szMsg);
       n = sendto(fd,szMsg,strlen(szMsg),0,(sockaddr*)&client_addr,len);
       if(n < 0)
       {
